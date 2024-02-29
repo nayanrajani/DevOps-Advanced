@@ -24,3 +24,4 @@
 - Commands
 
   - kubectl api-resources
+  - kubectl config set-context --current --namespace=nr-1-ns
