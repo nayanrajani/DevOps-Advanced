@@ -25,3 +25,9 @@
 
   - kubectl api-resources
   - kubectl config set-context --current --namespace=nr-1-ns
+  - echo d2FsbG1hcnQ= | base64 --decode
+  - echo nayan.rajani@blazeclan.com | base64
+    - bmF5YW4ucmFqYW5pQGJsYXplY2xhbi5jb20K 
+  - echo N@pass123 | base64
+    - TkBwYXNzMTIzCg==
+  - kubectl exec -it nayan-deploy-6d8965c6fb-bldrs -- sh
