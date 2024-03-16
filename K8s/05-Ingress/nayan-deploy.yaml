@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nayan-deploy
+  labels:
+    app: nayan-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nayan-deploy
+  template:
+    metadata:
+      labels:
+        app: nayan-deploy
+    spec:
+      containers:
+      - name: nayan-deploy
+        image: nginx 
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: nayan-app-port
+            containerPort: 80

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nayan-deploy
+  labels:
+    app: nayan-deploy
+spec:
+  selector:
+    matchLabels:
+      app: nayan-deploy
+  template:
+    metadata:
+      labels:
+        app: nayan-deploy
+    spec:
+      containers:
+      - name: nayan-deploy
+        image: amitvashist7/k8s-tiny-web 
+        imagePullPolicy: IfNotPresent
+        ports:
+          - name: nayan-app-port
+            containerPort: 80

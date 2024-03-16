@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nayan-deploy-3
+  labels:
+    app: nayan-deploy-3
+spec:
+  replicas: 3
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: nayan-deploy-3
+  template:
+    metadata:
+      labels:
+        app: nayan-deploy-3
+    spec:
+      containers:
+        - name: nayan-deploy-3
+          image: amitvashist7/k8s-tiny-web
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: node-port
+              containerPort: 80
