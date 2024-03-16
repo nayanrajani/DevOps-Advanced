@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nayan-app1-deployment
+  labels:
+    app: nayan-app1
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: nayan-app1
+  template:
+    metadata:
+      labels:
+        app: nayan-app1
+    spec:
+      containers:
+        - name: nayan-app1
+          image: amitvashist7/my-colorful-nginx-app1
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nayan-app1-nginx-nodeport-service
+  labels:
+    app: nayan-app1
+  annotations:
+#Important Note:  Need to add health check path annotations in service level if we are planning to use multiple targets in a load balancer
+    alb.ingress.kubernetes.io/healthcheck-path: /app1/index.html
+spec:
+  type: NodePort
+  selector:
+    app: nayan-app1
+  ports:
+    - port: 80
+      targetPort: 80

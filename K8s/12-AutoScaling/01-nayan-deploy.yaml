@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nayan-hpa
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nayan-hpa  
+  template:
+    metadata:
+      labels:
+        app: nayan-hpa
+    spec:
+      imagePullSecrets:
+      - name: regcred
+      containers:
+      - name: nayan-hpa
+        image: amitvashist7/hpa-example
+        ports:
+        - name: http-port
+          containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
