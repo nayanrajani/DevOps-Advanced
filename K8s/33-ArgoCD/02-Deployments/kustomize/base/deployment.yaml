@@ -1,23 +1,25 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
-  name: helloworld-statefull
+  name: helloworld-deployment
   labels:
-    app: helloworld-statefull
+    app: helloworld
 spec:
-  serviceName: helloworld-statefull
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: helloworld-statefull
+      app: helloworld
   template:
     metadata:
       labels:
-        app: helloworld-statefull
+        app: helloworld
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
       - name: k8s-demo
         image: amitvashist7/k8s-tiny-web
+        imagePullPolicy: IfNotPresent
         ports:
-        - name: node-port
+        - name: myappport
           containerPort: 80

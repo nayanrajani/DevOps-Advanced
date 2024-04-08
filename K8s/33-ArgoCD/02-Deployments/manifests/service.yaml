@@ -1,23 +1,22 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
-  name: helloworld-statefull
+  name: nginx-deployment
   labels:
-    app: helloworld-statefull
+    app: nginx
 spec:
-  serviceName: helloworld-statefull
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      app: helloworld-statefull
+      app: nginx
   template:
     metadata:
       labels:
-        app: helloworld-statefull
+        app: nginx
     spec:
       containers:
       - name: k8s-demo
-        image: amitvashist7/k8s-tiny-web
+        image: nginx
         ports:
         - name: node-port
           containerPort: 80

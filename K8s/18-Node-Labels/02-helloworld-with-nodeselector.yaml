@@ -24,4 +24,4 @@ spec:
         - name: node-port
           containerPort: 80
       nodeSelector:
-        hardware: virtual
+        hardware: m5.large
