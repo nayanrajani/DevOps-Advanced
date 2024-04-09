@@ -82,3 +82,5 @@ Address 1: 10.0.10.108 es-cluster-2.elasticsearch.efk.svc.cluster.local
 ```
 
 #### The above concept is used very commonly in Kubernetes, so should be understood clearly. In fact, the statefulset env vars – “discovery.seed_hosts” and “cluster.initial_master_nodes” are using this concept.
+
+nslookup nayan-es-cluster-1.elasticsearch.test-ec2.svc.cluster.local
