@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nayan-deploy
-        image: nginx 
+        image: devopsinsiders/netflix-clone 
         imagePullPolicy: IfNotPresent
         ports:
           - name: nayan-app-port

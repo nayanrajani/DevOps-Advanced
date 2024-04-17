@@ -31,3 +31,5 @@
   - echo N@pass123 | base64
     - TkBwYXNzMTIzCg==
   - kubectl exec -it nayan-deploy-6d8965c6fb-bldrs -- sh
+  - kubectl create secret generic nayan-secret --from-file=username.txt
+  - printenv
