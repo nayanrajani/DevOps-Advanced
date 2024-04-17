@@ -2,11 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kibana-np
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: external-facing
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
 spec:
+  type: LoadBalancer
   selector: 
     app: kibana
-  type: NodePort  
   ports:
-    - port: 8080
+    - port: 80
       targetPort: 5601 
       nodePort: 30000
