@@ -33,3 +33,11 @@
   - kubectl exec -it nayan-deploy-6d8965c6fb-bldrs -- sh
   - kubectl create secret generic nayan-secret --from-file=username.txt
   - printenv
+  - argocd account update-password \
+  --current-password # current password \
+  --new-password # new password
+  - argocd.exe login aca87ca139d9a424a9783bc0610aa0e5-1304525760.ap-south-1.elb.amazonaws.com --insecure
+  - argocd repo list
+  - argocd repo add https://gitlab.com/nayan98/spacex-netflix.git --username nayan98 --password secret --insecure-skip-server-verification
+  - $ kubectl get pods -A | grep kibana
+  - $ kubectl delete pv --all -n spacex-efk

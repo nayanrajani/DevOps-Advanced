@@ -4,7 +4,7 @@ metadata:
   name: spacex-es-cluster
 spec:
   serviceName: elasticsearch
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: elasticsearch
@@ -39,9 +39,9 @@ spec:
               fieldRef:
                 fieldPath: metadata.name
           - name: discovery.seed_hosts
-            value: "spacex-es-cluster-0.elasticsearch,spacex-es-cluster-1.elasticsearch,spacex-es-cluster-2"
+            value: "spacex-es-cluster-0.elasticsearch,spacex-es-cluster-1.elasticsearch"
           - name: cluster.initial_master_nodes
-            value: "spacex-es-cluster-0,spacex-es-cluster-1,spacex-es-cluster-2"
+            value: "spacex-es-cluster-0,spacex-es-cluster-1"
           - name: ES_JAVA_OPTS
             value: "-Xms512m -Xmx512m"
       initContainers:
